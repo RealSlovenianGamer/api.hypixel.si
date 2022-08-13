@@ -11,6 +11,14 @@ router.get('/', async (req,res) => {
 router.get('/uuid/:uuid/', isciUuid);
 router.get('/ime/:ime/', isciIme);
 
+let cacheData = {};
+let cacheIme;
+function shrani(ime, data) {
+  cacheIme = ime;
+  cacheData = data;
+  console.log('shranil podatke');
+}
+
 async function isciIme(request, response) {
     try {
     var ime = request.params.ime;
@@ -20,7 +28,16 @@ async function isciIme(request, response) {
     fetch('https://api.hypixel.net/player?key=c5b34550-a69b-4ed1-a220-b155bdfa3718&name=' + ime)
           .then(response => response.json())
           .then(data => {
+              if(!data.success) {
+                if(ime == cacheIme){
+                  response.json(cacheData);
+                } else {
+                  response.json(data)
+                }
+              } else {
+              shrani(ime, data);
               response.json(data);
+            }
           });
     } catch(error){
       console.log(error);
