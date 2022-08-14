@@ -58,7 +58,7 @@ async function isciIme(request, response) {
 async function isciUuid(request, response) {
   try {
   var uuid = request.params.uuid;
-  await sleep(3000);
+  await sleep(300);
   fetch('https://api.hypixel.net/player?key=c5b34550-a69b-4ed1-a220-b155bdfa3718&uuid=' + uuid)
         .then(response => response.json())
         .then(data => {
