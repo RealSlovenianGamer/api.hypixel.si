@@ -11,11 +11,10 @@ router.get('/', async (req,res) => {
 router.get('/uuid/:uuid/', isciUuid);
 router.get('/ime/:ime/', isciIme);
 
-let cacheData = {};
-let cacheIme;
+let cache = [];
 function shrani(ime, data) {
-  cacheIme = ime;
-  cacheData = data;
+  oldime = ime;
+  cache[ime] = data;
   console.log('shranil podatke');
 }
 
@@ -23,14 +22,13 @@ async function isciIme(request, response) {
     try {
     var ime = request.params.ime;
     //naredi check če je bilo isto ime pravkar iskano
-    //če ja potem s funkcijo shranjevanja in pobiranja podatkov uporabi stare podatke
-    //oldime = ime
+    //če ja potem s prej shranjenih podatkov iz cache uporabi stare podatke
     fetch('https://api.hypixel.net/player?key=c5b34550-a69b-4ed1-a220-b155bdfa3718&name=' + ime)
           .then(response => response.json())
           .then(data => {
               if(!data.success) {
-                if(ime == cacheIme){
-                  response.json(cacheData);
+                if(ime == oldime){
+                  response.json(cache[ime]);
                 } else {
                   response.json(data)
                 }
