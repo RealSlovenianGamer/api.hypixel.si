@@ -15,7 +15,7 @@ let cache = [];
 function shrani(ime, data) {
   oldime = ime;
   cache[ime] = data;
-  console.log('shranil podatke');
+  console.log('Shranil podatke za', ime);
 }
 
 async function isciIme(request, response) {

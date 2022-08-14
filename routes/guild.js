@@ -8,7 +8,7 @@ let cache = [];
 async function shrani(ime, data) {
     //const data = await fetch('https://api.hypixel.net/guild?key=c5b34550-a69b-4ed1-a220-b155bdfa3718&name=Hypixel%20Slovenija');
     cache[ime] = data;
-    console.log('Shranil podatke za ', ime);
+    console.log('Shranil podatke za', ime);
 }
 
 router.get('/id/:id/', isciID);
