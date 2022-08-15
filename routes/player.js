@@ -4,12 +4,12 @@ require('dotenv').config()
 const API_KEY = process.env.KEY
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
-router.get('/', async (req,res) => {
-    res.send('dela')
-})
-
 router.get('/uuid/:uuid/', isciUuid);
 router.get('/ime/:ime/', isciIme);
+
+router.get('/', async (req,res) => {
+  res.send('dela')
+})
 
 let cachedIgralci = [];
 let cache = [];
