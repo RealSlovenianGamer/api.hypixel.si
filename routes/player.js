@@ -3,12 +3,14 @@ const router = express.Router();
 require('dotenv').config()
 const API_KEY = process.env.KEY
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
+const path = require('path');
 
 router.get('/uuid/:uuid/', isciUuid);
 router.get('/ime/:ime/', isciIme);
 
 router.get('/', async (req,res) => {
-  res.send('dela')
+  res.status(404).send('Error 404');
+  //res.sendFile(path.join(__dirname, '../website/index.html'));
 })
 
 let cachedIgralci = [];
