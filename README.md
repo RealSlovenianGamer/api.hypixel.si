@@ -1,2 +1,3 @@
-## (api.hypixel.si)
-#Hypixel Slovenija API
+### api.hypixel.si
+
+# Hypixel Slovenija API
