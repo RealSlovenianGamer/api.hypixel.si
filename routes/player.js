@@ -14,10 +14,6 @@ router.get('/', async (req,res) => {
   //res.sendFile(path.join(__dirname, '../website/index.html'));
 })
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
 //cache
 const verifyCache = (req, res, next) => {
   try {
