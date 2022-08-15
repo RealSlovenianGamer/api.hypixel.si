@@ -7,7 +7,7 @@ const path = require('path');
 //ustvarjanje predpomnilnika
 const axios = require("axios");
 const NodeCache = require("node-cache");
-const cache = new NodeCache({ stdTTL: 300 });
+const cache = new NodeCache({ stdTTL: 43200 });
 
 router.get('/', async (req,res) => {
   res.status(404).send('Error 404');
