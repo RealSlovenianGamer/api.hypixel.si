@@ -3,6 +3,7 @@ require('dotenv/config');
 const bodyParser = require('body-parser');
 const app = express();
 const cors = require('cors');
+require('dotenv').config()
 
 
 //Middlewares
