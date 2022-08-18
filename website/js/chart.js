@@ -1,46 +1,65 @@
-google.charts.load('current', {'packages':['line']});
-google.charts.setOnLoadCallback(drawChart);
 
-function drawChart() {
 
-var data = new google.visualization.DataTable();
-data.addColumn('number', 'Day');
-data.addColumn('number', 'Guardians of the Galaxy');
-data.addColumn('number', 'The Avengers');
-data.addColumn('number', 'Transformers: Age of Extinction');
-
-data.addRows([
-  [1,  37.8, 80.8, 41.8],
-  [2,  30.9, 69.5, 32.4],
-  [3,  25.4,   57, 25.7],
-  [4,  11.7, 18.8, 10.5],
-  [5,  11.9, 17.6, 10.4],
-  [6,   8.8, 13.6,  7.7],
-  [7,   7.6, 12.3,  9.6],
-  [8,  12.3, 29.2, 10.6],
-  [9,  16.9, 42.9, 14.8],
-  [10, 12.8, 30.9, 11.6],
-  [11,  5.3,  7.9,  4.7],
-  [12,  6.6,  8.4,  5.2],
-  [13,  4.8,  6.3,  3.6],
-  [14,  4.2,  6.2,  3.4]
-]);
-
-var options = {
-  chart: {
-    title: 'Hypixel Slovenija guild statistika',
-    subtitle: '(Guild EXP na dan)'
-  },
-  width: 900,
-  height: 500,
-  axes: {
-    x: {
-      0: {side: 'top'}
-    }
-  }
+async function getData(){
+  //Dobi podatke od guilda
+  const response = await fetch('http://localhost:8080/guild/slo')
+  const data = await response.json();
+  data.guild.members.forEach(getDate())
+  drawChart(getDate());
 };
 
-var chart = new google.charts.Line(document.getElementById('line_top_x'));
+let date = [];
+let gExp = [];
 
-chart.draw(data, google.charts.Line.convertOptions(options));
+function getDate(member){
+  //Določevanje današnjega datuma
+  //dan
+  const d = new Date();
+  let dan = d.getDate();
+  //mesec
+  const m = new Date();
+  let mesec = + m.getMonth() + 1;
+  if (mesec < 10){mesec = '0' + mesec}
+  //leto
+  const l = new Date();
+  let leto = l.getFullYear()
+  //združi z pomišljaji
+  for (i=0;i<7;i++){
+    date[i] = leto+'-'+mesec+'-'+dan
+    dan -= 1;
+
+  }
+  return date;
+}
+
+function getExp(member){
+  member.map((item) => {return item.expHistory['2022-08-18'];});
+  
+console.log(member);
+}
+getData();
+
+google.charts.load('current', {'packages':['corechart']});
+//google.charts.setOnLoadCallback(drawChart);
+
+function drawChart(date) {
+  var data = google.visualization.arrayToDataTable([
+    ['Dan', 'Guild EXP'],
+    [date[0],  100],
+    [date[1],  200],
+    [date[2],  300],
+    [date[3],  600],
+    [date[4],  299],
+    [date[5],  1000],
+    [date[6],  69]
+  ]);
+
+  var options = {
+    title: 'Hypixel Slovenija guild',
+    legend: { position: 'bottom' }
+  };
+
+  var chart = new google.visualization.LineChart(document.getElementById('line_chart'));
+
+  chart.draw(data, options);
 }
