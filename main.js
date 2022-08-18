@@ -11,9 +11,11 @@ app.use(bodyParser.json());
 //Import routes
 const guildRoute = require('./routes/guild');
 const playerRoute = require('./routes/player');
+const prikazRoute = require('./routes/prikaz');
 
 app.use('/guild', guildRoute)
 app.use('/player', playerRoute)
+app.use('/prikaz', prikazRoute)
 
 var ura = new Date().toLocaleString();
 

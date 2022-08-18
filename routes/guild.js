@@ -9,7 +9,7 @@ const NodeCache = require("node-cache");
 const cache = new NodeCache({ stdTTL: 43200 });
 
 //Get data for HypixelSlovenija guild
-router.get('/', async (req,res) => {
+router.get('/slo', async (req,res) => {
     try {
         fetch('https://api.hypixel.net/guild?key=' + API_KEY + '&id=5ff980828ea8c9e004b008e2')
         .then(response => response.json())

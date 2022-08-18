@@ -1,34 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:url" content="http://api.hypixel.si:8080">
-    <meta property="og:title" content="Hypixel Slovenija API">
-    <meta property="og:description" content="Hypixel Slovenija API">
-    <meta property="og:image" content="http://api.hypixel.si:8080/files/logo.png">
-    <meta content="#bde0fe" data-react-helmet="true" name="theme-color">
-    <link rel="stylesheet" href="stili.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,500;1,200;1,300;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <title>Hello</title>
-  </head>
-  <body>
-    <h1 class="center">Hypixel Slovenija API beta v1</h1>
-    <br>
-    <a href="/guild">Guild API</a>
-    <br>
-    <a href="/player">Player API</a>
-    <br>
-    <br>
-    <div class="iskalnik" align="center">
-      	<input placeholder="Išči igralca.. (v izdelavi)" id="iskalniInput"></input>
-        <br>
-        <br>
+<html lang="en">
+<head>
+    <link rel="icon" href="img/logo.png" type="image/png" sizes="32x32">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;700&display=swap" rel="stylesheet">
+    <title>stat.hypixel.si</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/circular_progress.css">
+    <style>
+        body {
+            background-image: url("./img/bak1.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            margin: 0;
+            min-height: 100vh;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar" id="topnavbar">
+        <a href="./index.html" class="active">Domov</a>
+        <a href="./clani.html">Člani Guilda</a>
+        <a href="./stat.html">Stat Guilda</a>
+        <a href="javascript:void(0);" class="icon" onclick="meni()">
+            <i class="fa fa-bars"></i>
+          </a>
         </div>
-    <script src="/script.js"></script>
-  </body>
+        <div id="content" align="center">
+            <h1>Statistika našega guilda</h1>
+            <br>
+            <div class="container">
+                <div class="circular-progress">
+                    <span class="progress-value"> </span>
+                </div>
+
+                <span class="text">Članov guilda</span>
+            </div>
+        </div>
+    <script src="./js/main_script.js"></script>
+    <script src="./js/progressbar.js"></script>
+</body>
 </html>
