@@ -10,7 +10,7 @@ Kazalo
  <div id="si">
 <h2> 🇸🇮 </h2>
   <h3>Kaj je to?</h3>
-    To je opensource projekt, ki uporablja podatke s Hypixe API-ja in jih obdeluje ter prikazuje na spletni strani.
+    To je opensource projekt, ki uporablja podatke s Hypixel API-ja in jih obdeluje ter prikazuje na spletni strani.
   <h3>Zakaj sem se odločil za ta projekt?</h3>
     Narejen je bil za prikazovanje guild statistike na spletni strani guilda Hypixel Slovenija. Ter tudi zato, ker je bilo to zame še neraziskano področje, ki sem si ga želel bolje spoznati :)
   <h3>Requirments:</h3>
