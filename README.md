@@ -70,5 +70,5 @@ Kazalo
   <br>
     In root folder run <code>node main.js</code> ez.
   <h3>Credits and Acknowledgments</h3>
-    Thanks to the tutors for helping with the work, <a href="https://crafatar.com/"Crafatar</a> for letting me use their API for head images and skins, and of course a thanks to everyone else who I forgot to mention.
+    Thanks to the tutors for helping with the work, <a href="https://crafatar.com/">Crafatar</a> for letting me use their API for head images and skins, and of course a thanks to everyone else who I forgot to mention.
 
