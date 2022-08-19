@@ -98,7 +98,7 @@ async function prikaz(data){
         '<div class="navbar" id="topnavbar">'+
           '<a href="/">Domov</a>'+
           '<a href="/clani.html">Člani Guilda</a>'+
-          '<a href="/guild.html">Stat Guilda</a>'+
+          '<a href="/stat.html">Stat Guilda</a>'+
           '<a href="#" class="active">Prikaz</a>'+
           '<a href="javascript:void(0);" class="icon" onclick="meni()">'+
               '<i class="fa fa-bars"></i>'+
