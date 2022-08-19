@@ -65,8 +65,12 @@ router.get("/ime/:ime", verifyCacheIme, async (req, res) => {
 
 async function prikaz(data){
   let url = 'https://crafatar.com/renders/body/' + data.player.uuid+'?size=4&default=MHF_Steve&overlay';
-  var firstLogin = new Date(data.player.firstLogin).toLocaleDateString("sl-SI"); 
-  var lastLogin = new Date(data.player.lastLogin).toLocaleString();
+  var firstLogin = new Date(data.player.firstLogin).toLocaleDateString("sl-SI");
+  if (data.player.lastLogin === undefined){
+    lastLogin = 'Izklopljeno'
+  }else{
+    var lastLogin = new Date(data.player.lastLogin).toLocaleString();
+  }
   var lvl = Math.floor(Math.sqrt(data.player.networkExp + 15312.5) - (125/Math.sqrt(2)))/(25*Math.sqrt(2))
   let level = Math.trunc(lvl);
   return '<!DOCTYPE html>' +
@@ -81,6 +85,8 @@ async function prikaz(data){
       '<meta property="og:image" content="http://api.hypixel.si:8080/files/logo.png">'+
       '<meta content="#bde0fe" data-react-helmet="true" name="theme-color">'+
       '<link rel="stylesheet" href="/css/style.css">'+
+      '<link rel="stylesheet" href="/css/bak.css">'+
+      '<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>'+
       '<link rel="preconnect" href="https://fonts.googleapis.com">'+
       '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'+
       '<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;0,300;0,500;1,200;1,300;1,500&display=swap" rel="stylesheet">'+
@@ -91,7 +97,7 @@ async function prikaz(data){
     '<body>'+
         '<div class="navbar" id="topnavbar">'+
           '<a href="/">Domov</a>'+
-          '<a href="/člani.html">Člani Guilda</a>'+
+          '<a href="/clani.html">Člani Guilda</a>'+
           '<a href="/guild.html">Stat Guilda</a>'+
           '<a href="#" class="active">Prikaz</a>'+
           '<a href="javascript:void(0);" class="icon" onclick="meni()">'+
@@ -102,17 +108,22 @@ async function prikaz(data){
             '<h1>' + data.player.displayname + '</h1><br><small>(<i>'+ data.player.uuid + '</i>)</small></span></h1>'+
             '<br>'+
             '<h3>Statistika igralca</h3>'+
-            '<span>Network Level: ' + level + ' <small>(<i>'+ data.player.networkExp + '</i>)</small></span>'+
+            '<span><b>Level: </b>' + level + ' <small>(<i>'+ data.player.networkExp + '</i>)</small></span>'+
             '<br>'+
-            '<span>Prvič online: ' + firstLogin +  '</span>'+
+            '<span><b>Prvič online: </b>' + firstLogin +  '</span>'+
             '<br>'+
-            '<span>Nazadnje online: ' + lastLogin + '</span>'+
+            '<span><b>Nazadnje online: </b>' + lastLogin + '</span>'+
             '<br>'+
-            '<span>Rank: ' + getRank(data) + '</span>'+
+            '<span><b>Rank: </b>' + getRank(data) + '</span>'+
+            '<br>'+
             '<br>'+
             '<img src="' + url + '">' + '</span>'+
+            '<br>'+
+            '<br>'+
+            '<div id="line_chart"></div>'+
         '</div>'+
       '<script src="/js/script.js"></script>'+
+      '<script src="/js/graph.js"></script>'+
     '</body>'+
   '</html>'
 }
@@ -127,7 +138,7 @@ function getRank(data){
       } else if (player.newPackageRank) { // Check if its VIP...MVP+
           return rank = player.newPackageRank.replace('_PLUS', '+');
       } else {
-          return rank = 'Non-Rank';
+          return rank = 'brez';
       }
 }
 

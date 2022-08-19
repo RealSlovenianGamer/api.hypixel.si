@@ -20,6 +20,11 @@
 .MVP-PLUS {
   color: gold !important;
 }
+#line_chart {
+  width: auto;
+  max-width: 75%;
+}
+
 .VIP {
   color: lightgreen !important;
 }

@@ -1,15 +1,11 @@
-
-
 async function getData(){
   //Dobi podatke od guilda
   const response = await fetch('http://localhost:8080/guild/slo')
   const data = await response.json();
-  data.guild.members.forEach(getDate())
-  drawChart(getDate());
+  getExp(data.guild.members);
 };
 
 let date = [];
-let gExp = [];
 
 function getDate(member){
   //Določevanje današnjega datuma
@@ -25,37 +21,43 @@ function getDate(member){
   let leto = l.getFullYear()
   //združi z pomišljaji
   for (i=0;i<7;i++){
-    date[i] = leto+'-'+mesec+'-'+dan
+    date[6-i] = leto+'-'+mesec+'-'+dan
     dan -= 1;
-
   }
   return date;
 }
 
-function getExp(member){
-  member.map((item) => {return item.expHistory['2022-08-18'];});
-  
-console.log(member);
+function getExp(members){
+  //console.log(members.);
+  let gExp = [];
+  getDate();
+  date.forEach((date, i) => {
+    gExp.push(members.map(x => x.expHistory[date]).reduce((prev, curr)  => {
+        return prev + curr
+    }))
+  })
+  drawChart(getDate(), gExp)
 }
-getData();
 
 google.charts.load('current', {'packages':['corechart']});
 //google.charts.setOnLoadCallback(drawChart);
 
-function drawChart(date) {
+function drawChart(date, exp) {
+  console.log(exp)
+
   var data = google.visualization.arrayToDataTable([
     ['Dan', 'Guild EXP'],
-    [date[0],  100],
-    [date[1],  200],
-    [date[2],  300],
-    [date[3],  600],
-    [date[4],  299],
-    [date[5],  1000],
-    [date[6],  69]
+    [date[0],  exp[0]],
+    [date[1],  exp[1]],
+    [date[2],  exp[2]],
+    [date[3],  exp[3]],
+    [date[4],  exp[4]],
+    [date[5],  exp[5]],
+    [date[6],  exp[6]]
   ]);
 
   var options = {
-    title: 'Hypixel Slovenija guild',
+    title: 'Graf guild exp/dan',
     legend: { position: 'bottom' }
   };
 
@@ -63,3 +65,5 @@ function drawChart(date) {
 
   chart.draw(data, options);
 }
+
+getData();

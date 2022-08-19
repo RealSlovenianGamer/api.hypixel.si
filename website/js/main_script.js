@@ -8,7 +8,7 @@ function meni(){
 }
 
 //https://github.com/slothpixel/core/blob/master/processors/processGuildData.js#L6-#L48
-function getLevel(exp) {
+function getGuildLevel(exp) {
     const EXP_NEEDED = [
       100000,
       150000,
