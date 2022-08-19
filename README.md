@@ -28,11 +28,14 @@ Kazalo
     </ul>
   <h3>Zagon</h3>
     Najprej kloniramo projekt na lokalni disk. <code>git clone https://github.com/RealSlovenianGamer/api.hypixel.si/</code>
-    Nato se premaknemo v novo nastalo mapo.
-    <code>cd api.hypixel.si</code>
-    Nato naložimo vse potrebne knjižnice
-    <code>npm install {ime knjižnice}
-    V root mapi napišeš <code>node main.js</code> ez.
+  <br>
+    Nato se premaknemo v novo nastalo mapo. <code>cd api.hypixel.si</code>
+  <br>
+    Nato naložimo vse potrebne knjižnice. <code>npm install {ime knjižnice}</code>
+    <br>
+    V root mapi narediš datoteko z imenom <code>.env</code> ter notri napišeš <code>KEY="tvoj_hypixel_api_key"</code>.
+  <br>
+    V root mapi zaženeš kodo z <code>node main.js</code> ez.
   <h3>Krediti in zahvale</h3>
     Hvala mentorjem za pomoč pri delu, <a href="https://crafatar.com/">Crafatar</a> za uporabo njihovega API-ja za slike glav in skinov ter seveda tudi ostalim, ki sem jih pozabil omeniti.
 </div>
@@ -45,19 +48,27 @@ Kazalo
   <h3>Requirments</h3>
     <ul>
       <li><code>Node.JS</code></li>
+      <li><code>express</code></li>
       <li><code>axios</code></li>
       <li><code>body-parsner</code></li>
       <li><code>cors</code></li>
-      <li><code>doenv</code></li>
+      <li><code>dotenv</code></li>
       <li><code>env</code></li>
-      <li><code>express</code></li>
       <li><code>node-cache</code></li>
       <li><code>node-fetch</code></li>
       <li>optionally <code>nodemon</code></li>
     </ul>
   </div>
   <h3>Startup</h3>
-    V root mapi napišeš <code>node main.js</code> ez.
-  <h3>Krediti in zahvale</h3>
-    Hvala mentorjem za pomoč pri delu, <a href="https://crafatar.com/">Crafatar</a> za uporabo njihovega API-ja za slike glav in skinov ter seveda tudi ostalim, ki sem jih pozabil omeniti.
+     First we have to clone the repository to our local disk. <code>git clone https://github.com/RealSlovenianGamer/api.hypixel.si/</code>
+  <br>
+    Then we change directory to that newly made folder. <code>cd api.hypixel.si</code>
+  <br>
+    Then we have to install all required dependencies and libraries. <code>npm install {name of dependency}</code>
+    <br>
+    In root folder create a <code>.env</code> file and put your Hypixel API key <code>KEY="api_key"</code>.
+  <br>
+    In root folder run <code>node main.js</code> ez.
+  <h3>Credits and Acknowledgments</h3>
+    Thanks to the tutors for helping with the work, <a href="https://crafatar.com/"Crafatar</a> for letting me use their API for head images and skins, and of course a thanks to everyone else who I forgot to mention.
 
