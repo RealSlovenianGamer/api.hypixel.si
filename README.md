@@ -26,7 +26,7 @@ Kazalo
       <li><code>node-fetch</code></li>
       <li>po želji <code>nodemon</code></li>
     </ul>
-  <h3>Zagon</h3>
+  <h3>Zagon in inštalacija</h3>
     Najprej kloniramo projekt na lokalni disk. <code>git clone https://github.com/RealSlovenianGamer/api.hypixel.si/</code>
   <br>
     Nato se premaknemo v novo nastalo mapo. <code>cd api.hypixel.si</code>
@@ -59,7 +59,7 @@ Kazalo
       <li>optionally <code>nodemon</code></li>
     </ul>
   </div>
-  <h3>Startup</h3>
+  <h3>Startup and Installation</h3>
      First we have to clone the repository to our local disk. <code>git clone https://github.com/RealSlovenianGamer/api.hypixel.si/</code>
   <br>
     Then we change directory to that newly made folder. <code>cd api.hypixel.si</code>
