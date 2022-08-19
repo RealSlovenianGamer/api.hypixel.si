@@ -10,17 +10,6 @@ fetch('http://localhost:8080/guild/slo')
     let guildLvl = Math.floor(getGuildLevel(data.guild.exp));
     document.getElementById('guildLevel').innerHTML = guildLvl;
     document.getElementById('guildMembers').innerHTML = allmembers;
-    let progressStartValue = 0,    
-    speed = 20;
-    let progress = setInterval(() => {
-    progressStartValue++;
-    progressValue.textContent = `${allmembers}`
-    circularProgress.style.background = `conic-gradient(#7d2ae8 ${progressStartValue * 3.6}deg, #ededed 0deg)`
-
-    if(progressStartValue == progressEndValue){
-        clearInterval(progress);
-    }    
-    }, speed);
 })
 
 //https://github.com/slothpixel/core/blob/master/processors/processGuildData.js#L6-#L48
